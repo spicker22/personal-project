@@ -4,7 +4,7 @@ import connectToDB from './db.js';
 
 // Establishes connection to PostgreSQL db using 'connectToDB function
 // Resulting database connection object 'db' is used
-export const db = await connectToDB('postgresql:///ratings');
+export const db = await connectToDB('postgresql:///doctors');
 
 // 'Category' class
 export class Category extends Model {
@@ -75,3 +75,6 @@ Doctor.init(
 // Define Relationship: movie to rating -> one to many
 Category.hasMany(Doctor, {foreignKey: 'categoryId'})
 Doctor.belongsTo(Category, {foreignKey: 'categoryId'})
+
+// Forcing changes. It clears previously existing tables. Creates new tables
+db.sync({force: true})

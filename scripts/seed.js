@@ -12,14 +12,14 @@ const doctorsInDB = await Promise.all(
     doctorData.map(async (doctor) => {
 
     // Destructing columns from 'doctor' object
-    const {doctorname, phonenumber, address, categoryid} = doctor
+    const {name, phoneNumber, address, categoryId} = doctor
 
     // Adding movie to movie table
     const newDoctor = await Doctor.create({
-        doctorname,
-        phonenumber, 
+        name,
+        phoneNumber, 
         address, 
-        categoryid
+        categoryId
     })
     // Return new doctor to map array return
     return newDoctor
