@@ -1,16 +1,16 @@
 [
     {
     "id": "1",
-    "category": "Dental"
+    "categoryName": "Dental"
     },
 
     {
     "id": "2",
-    "category": "Medical Scans"
+    "categoryName": "Medical Scans"
     },
     
     {
     "id": "3",
-    "category": "Direct Primary Care"
+    "categoryName": "Direct Primary Care"
     }
 ]

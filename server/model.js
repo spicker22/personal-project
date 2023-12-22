@@ -21,7 +21,7 @@ Category.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    category: {
+    categoryName: {
       type: DataTypes.STRING(30),
       unique: true,
       allowNull: false,
@@ -29,7 +29,6 @@ Category.init(
   },
   {
     modelName: 'category',
-    tableName: 'categories',
     sequelize: db,
   },
 );
@@ -56,18 +55,14 @@ Doctor.init(
       allowNull: false
     },
     phoneNumber: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     address: {
       type: DataTypes.TEXT
-    },
-    categoryId: {
-      type: DataTypes.INTEGER
     }
   },
   {
     modelName: 'doctor',
-    tablename: 'doctors',
     sequelize: db,
   },
 );
@@ -77,4 +72,4 @@ Category.hasMany(Doctor, {foreignKey: 'categoryId'})
 Doctor.belongsTo(Category, {foreignKey: 'categoryId'})
 
 // Forcing changes. It clears previously existing tables. Creates new tables
-db.sync({force: true})
+// db.sync({force: true})
