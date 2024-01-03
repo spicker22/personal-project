@@ -6,13 +6,13 @@ import { Op } from 'sequelize';
 const handlerFunctions = {
 
     getDoctors: async (req, res) => {
-       const doctors = await Doctor.findAll()                       // Getting all doctors
-       res.send(doctors)                                            // Sending entire doctor set
+       const doctors = await Doctor.findAll()                       // Creating 'doctors' variable and inserting all doctors from 'Doctor' model
+       res.send(doctors)                                            // Sending entire doctor set (i.e. 'doctors')
     },  
 
     getDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
-        const doctor = await Doctor.findByPk(+id)                    // Finding specific doctor
+        const doctor = await Doctor.findByPk(+id)                   // Finding specific doctor
         res.send(doctor)                                            // Sending doctor
      },
 
@@ -31,7 +31,7 @@ const handlerFunctions = {
 
     deleteDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
-        const doctor = await Doctor.findByPk(id)                    // Finding doctor you want to delete
+        const doctor = await Doctor.findByPk(+id)                    // Finding doctor you want to delete
         await doctor.destroy()                                      // Deleting identiified doctor
         const doctors = await Doctor.findAll()                      // Getting all udpated list of the doctors
         res.send(doctors)                                           // Sending entire doctor set
@@ -40,7 +40,7 @@ const handlerFunctions = {
     editDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
         const {name, phoneNumber, address, categoryId} = req.body   // Get name, phoneNumber, address, categoryId from body object
-        const editDoctor = await Doctor.findByPk(id)                // Finding the doctor you want to delete
+        const editDoctor = await Doctor.findByPk(+id)                // Finding the doctor you want to delete
 
         editDoctor.name = name                                      // Change object ( the name ) 
         editDoctor.phoneNumber = phoneNumber                        // Change object ( the phoneNumber ) 

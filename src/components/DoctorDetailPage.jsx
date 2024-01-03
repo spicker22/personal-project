@@ -1,9 +1,17 @@
 import React from 'react'
-import { useState } from 'react';
-import axios from 'axios'
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-const doctordetails10 = () =>  {
-    return <div>Doctors Offices</div>
-}
-export default doctordetails10
+function DoctorDetailPage() {                   // DoctorDetailPage function
+    let { doctor } = useLoaderData();           // Get userId param from URL using 'useLoaderData()
+
+    return (
+        <div className = "card" >
+            <h2>{doctor.doctorId}</h2>
+            <h2>{doctor.name}</h2>
+            <h2>{doctor.address}</h2>
+   
+        </div>
+    )
+  }
+  export default DoctorDetailPage
+
