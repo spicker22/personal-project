@@ -16,7 +16,7 @@ app.use(morgan('dev'))                          // While in dev environment, can
 import handlerFunctions from './controller.js'
 
 const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor,  logIn, logOut} = handlerFunctions   // Destructs to extract specific functions
-app.get('/api/doctors', getDoctors)           // Retrieves a list of doctors
+app.get('/api/doctors/:categoryId', getDoctors)           // Retrieves a list of doctors
 app.get('/api/doctor/:id', getDoctor)         // Retrieves info about specific doctor
 app.post('/api/doctor', addDoctor)            // Adds a doctor
 app.delete('/api/doctor/:id', deleteDoctor)   // Deletes a doctors

@@ -18,5 +18,23 @@
     "phoneNumber": "123-456-7893",
     "address": "1233 Lane",
     "categoryId": "3"
+    },
+
+    {
+    "name": "Dr.Expensive",
+    "phoneNumber": "123-456-7895",
+    "address": "1234 Lane",
+    "categoryId": "1"
     }
+
+
+
+
+
+
+
+
+
+
+
 ]

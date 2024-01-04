@@ -59,6 +59,9 @@ Doctor.init(
     },
     address: {
       type: DataTypes.TEXT
+    },
+    categoryId: {
+      type: DataTypes.INTEGER
     }
   },
   {

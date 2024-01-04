@@ -5,10 +5,15 @@ import { Op } from 'sequelize';
 // List of key value pairs 
 const handlerFunctions = {
 
-    getDoctors: async (req, res) => {
-       const doctors = await Doctor.findAll()                       // Creating 'doctors' variable and inserting all doctors from 'Doctor' model
-       res.send(doctors)                                            // Sending entire doctor set (i.e. 'doctors')
-    },  
+     getDoctors: async (req, res) => {
+        const {categoryId} = req.params                             // Pulling a piece of the URL (params)                        
+        const doctors = await Doctor.findAll({                      // Setting doctors variable to query that goes into Doctor model
+            where: {                                                // 'where' is just SQL 'Where' statement
+                categoryId: categoryId                              // Matching categoryID column to incoming 'params' data that has been destructed
+            }
+        })                       
+        res.send(doctors)                                          
+     },  
 
     getDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
@@ -40,7 +45,7 @@ const handlerFunctions = {
     editDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
         const {name, phoneNumber, address, categoryId} = req.body   // Get name, phoneNumber, address, categoryId from body object
-        const editDoctor = await Doctor.findByPk(+id)                // Finding the doctor you want to delete
+        const editDoctor = await Doctor.findByPk(+id)               // Finding the doctor you want to delete
 
         editDoctor.name = name                                      // Change object ( the name ) 
         editDoctor.phoneNumber = phoneNumber                        // Change object ( the phoneNumber ) 
@@ -53,3 +58,47 @@ const handlerFunctions = {
     }
 }
 export default handlerFunctions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1. need to update server(getDoctors) so that it returns filtered doctors. This will be in the controller
+//          what variables/ data is needed to break that down
+//           what data doo we want to use
+//           c. how to sequalize use that to filter daeta
+//           d. updaet res.send so that it sends the filtered doctors
+
+
+
+// 2. need to update index.js to allow endpoint to accept parameters
+//      value from parameter, is determined by..... 
+//
+// test -> with postman (step 1 and 2 need to be complete before testing with postman)  
+
+
+
+// 3. need to figure out, how to pass 'selection' on the frontend to give to backend
+//          state variable, or a button
+//          examples -> if have state variable 
+//         or onclick attached to each button, a axios request is sent, and updates state variable of doctors 
+
+
+
+// Use javascript to filter data with json data
+// then figure out come up with sequalize syntax
+
+// need to identify doctors after you figured out category id 

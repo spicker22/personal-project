@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const DoctorsCard = (props) => {
     return (
         <div className = "card" >
+            
             <h2>{props.name}</h2>
             <h2>{props.phoneNumber}</h2>
             <Link to={`/doctor/${props.id}`}>See Doctor Listing</Link>
         </div>
     )
 }
-
 export default DoctorsCard
 
 

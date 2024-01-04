@@ -1,35 +1,38 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import DoctorsCard from './DoctorsCard.jsx';      // Import DoctorsCard child component
 
-// Import multiple child components
-import DoctorsCard from './DoctorsCard.jsx';
+const LandingPage = () => {
+    const [categoryId, setCategoryId] = useState(1)              // Setting up useState variable & function (categoryId, setCategoryId)
+    const handleClick = (value) => {                             // 'handleClick' function with parameter 'value'. The setCategory (button to update category)
+      setCategoryId(value);                                      // Update state using 'setCategoryId function (button to update category)
+    };
 
-
-// The LandingPage function.
-const LandingPage = (props) => {
-
-    const [currentData, setCurrentData] = useState([])                                              // Setting up useState variable and function (currentData, setCurrentData)
-    useEffect(() => {axios.get('/api/doctors').then((res) => {setCurrentData(res.data)})}, [])      // Using useEffect to get data from endpoint (/api/doctors)
-    const doctorsListItems = currentData.map((doctor) => (                                          // Mapping over 'currentData' to get each element (each doctor)
+    const [currentData, setCurrentData] = useState([])           // Setting up useState variable & function (currentData, setCurrentData)
+   
+    useEffect(() => {axios.get(`/api/doctors/${categoryId}`).then((res) => {setCurrentData(res.data)})}, [categoryId])    // Using useEffect to get data from endpoint (/api/doctors)
+   
+    const doctorsListItems = currentData.map((doctor) => (       // Mapping over 'currentData' to get each element (each doctor)
       <DoctorsCard
+        key={doctor.id}  
         name = {doctor.name}
         phoneNumber = {doctor.phoneNumber}
         id = {doctor.doctorId}
       />
     ))
-    return <> {doctorsListItems} </>
+  
+    return (                                                     // Return section
+    <> 
+      <button onClick={() => handleClick(1)}>Dental</button>
+      <button onClick={() => handleClick(2)}>Doctor</button>
+      <button onClick={() => handleClick(3)}>Surgery</button>
 
-
-
-
+      {doctorsListItems} 
+    </>
+    )
 }
 export default LandingPage
-
-
-
-
 
 
 
