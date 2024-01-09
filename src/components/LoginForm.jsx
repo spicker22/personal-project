@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export default function LoginForm({ onLogin }) {
-  const [emailValue, setEmailValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
+function LoginForm({ onLogin }) {
+  const [emailValue, setEmailValue] = useState('');         // Variable: value of email input field. Function: udpate 'emailvalue' state
+  const [passwordValue, setPasswordValue] = useState('');   // Variable: value of password input field. Function: udpate 'password' state
 
   return (
     <form
@@ -29,7 +29,9 @@ export default function LoginForm({ onLogin }) {
         required
         onChange={(e) => setPasswordValue(e.target.value)}
       />
-      <button type="submit">Log In</button>
+      <button type="submit" >Log In</button>        
     </form>
   );
 }
+
+export default LoginForm

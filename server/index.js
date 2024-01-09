@@ -1,7 +1,8 @@
-// Import all packages
+// Import packages
 import express from 'express'
 import morgan from 'morgan'
 import ViteExpress from 'vite-express'
+import handlerFunctions from './controller.js'
 
 // Setup Express instance
 const app = express()
@@ -12,18 +13,22 @@ app.use(express.static('public'))               // If there was a public folder,
 app.use(express.urlencoded({extended: false}))  // Helps send info along at end of URL 
 app.use(morgan('dev'))                          // While in dev environment, can use morgan for more logs (just for dev environment)
 
-// ROUTES GO HERE
-import handlerFunctions from './controller.js'
+// Destructs to extract specific functions
+const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor, addAccount, verifyAccount, getAccount} = handlerFunctions   
 
-const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor,  logIn, logOut} = handlerFunctions   // Destructs to extract specific functions
-app.get('/api/doctors/:categoryId', getDoctors)           // Retrieves a list of doctors
-app.get('/api/doctor/:id', getDoctor)         // Retrieves info about specific doctor
-app.post('/api/doctor', addDoctor)            // Adds a doctor
-app.delete('/api/doctor/:id', deleteDoctor)   // Deletes a doctors
-app.put('/api/doctor/:id', editDoctor)        // Edits a doctors
+// Endpoints
+app.get('/api/doctors/:categoryId', getDoctors)  // Retrieves a list of doctors
+app.get('/api/doctor/:id', getDoctor)            // Retrieves info about specific doctor
+app.post('/api/doctor', addDoctor)               // Adds a doctor
+app.delete('/api/doctor/:id', deleteDoctor)      // Deletes a doctors
+app.put('/api/doctor/:id', editDoctor)           // Edits a doctors
 
-//app.post('/api/auth', logIn)                // Handles user login/authentication
-//app.post('/api/logout', logOut)             // Handles user logout
+app.post('/api/register', addAccount)            // Adds account
+app.post('/api/auth', verifyAccount)             // Handles account/user login/authentication
+app.get('/api/account/:id', getAccount)          // Retrieves info about specific account
+// app.post('/api/logout', logOut)               // Handles user logout
+
+
 
 // Open door to server
 ViteExpress.listen(app, 2319, () => console.log(`we have a 2319 report to http://localhost:2319`))     // 2319 is the port

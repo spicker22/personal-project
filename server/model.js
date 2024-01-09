@@ -34,7 +34,6 @@ Category.init(
 );
 
 
-
 // 'Doctor' class
 export class Doctor extends Model {
   [util.inspect.custom]() {
@@ -62,7 +61,10 @@ Doctor.init(
     },
     categoryId: {
       type: DataTypes.INTEGER
-    }
+    },
+    accountId: {
+      type: DataTypes.INTEGER
+    },
   },
   {
     modelName: 'doctor',
@@ -70,9 +72,47 @@ Doctor.init(
   },
 );
 
+
+// 'Account' class
+export class Account extends Model {
+  [util.inspect.custom]() {
+    return this.toJSON();
+  }
+}
+
+// 'Account' model
+Account.init(
+  {
+    accountId: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    email: {
+      type: DataTypes.STRING(30),
+      unique: true,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+    }
+  },
+  {
+    modelName: 'account',
+    sequelize: db,
+  },
+);
+
+
+
 // Define Relationship: movie to rating -> one to many
 Category.hasMany(Doctor, {foreignKey: 'categoryId'})
 Doctor.belongsTo(Category, {foreignKey: 'categoryId'})
+
+
+Account.hasOne(Doctor, {foreignKey: 'accountId'})
+Doctor.belongsTo(Account, {foreignKey: 'accountId'})
 
 // Forcing changes. It clears previously existing tables. Creates new tables
 // db.sync({force: true})

@@ -1,6 +1,7 @@
-import {Category, Doctor, db} from "../server/model.js"
+import {Category, Doctor, Account, db} from "../server/model.js"
 import doctorData from "./data/doctors.json" assert {type: 'json'}
-import categoryData from "./data/categories.json" assert {type: 'json'}           
+import categoryData from "./data/categories.json" assert {type: 'json'}        
+import accountData from "./data/account.json" assert {type: 'json'}         
 import lodash from 'lodash'
 
 // Sync db back to empty thing (empty it), so you can seed it
@@ -29,17 +30,35 @@ const doctorsInDB = await Promise.all(
     doctorData.map(async (doctor) => {
 
     // Destructing columns from 'doctor' object
-    const {name, phoneNumber, address, categoryId} = doctor
+    const {name, phoneNumber, address, categoryId, accountId} = doctor
 
-    // Adding movie to movie table
+    // Adding doctor to doctor table
     const newDoctor = await Doctor.create({
         name,
         phoneNumber, 
         address, 
-        categoryId
+        categoryId,
+        accountId
     })
     // Return new doctor to map array return
     return newDoctor
+})
+)
+
+// Loop over each account (in account data in account.json)
+const accountsInDB = await Promise.all(
+    accountData.map(async (account) => {
+
+    // Destructing columns from 'doctor' object
+    const {email, password} = account
+
+    // Adding account to account table
+    const newAccount = await Account.create({
+        email,
+        password
+    })
+    // Return new account to map array return
+    return newAccount
 })
 )
 

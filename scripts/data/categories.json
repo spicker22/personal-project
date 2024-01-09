@@ -1,16 +1,13 @@
 [
     {
-    "id": "1",
     "categoryName": "Dental"
     },
 
     {
-    "id": "2",
     "categoryName": "Medical Scans"
     },
     
     {
-    "id": "3",
     "categoryName": "Direct Primary Care"
     }
 ]

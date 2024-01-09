@@ -1,8 +1,7 @@
-// The controller is the server
-import {Category, Doctor} from "./model.js"
+import {Category, Doctor, Account} from "./model.js"
 import { Op } from 'sequelize';
 
-// List of key value pairs 
+// List of handlerFunctions
 const handlerFunctions = {
 
      getDoctors: async (req, res) => {
@@ -36,8 +35,8 @@ const handlerFunctions = {
 
     deleteDoctor: async (req, res) => {
         const {id} = req.params                                     // Extracting 'id' parameter from request parameters
-        const doctor = await Doctor.findByPk(+id)                    // Finding doctor you want to delete
-        await doctor.destroy()                                      // Deleting identiified doctor
+        const doctor = await Doctor.findByPk(+id)                   // Finding doctor you want to delete
+        await doctor.destroy()                                      // Deleting identified doctor
         const doctors = await Doctor.findAll()                      // Getting all udpated list of the doctors
         res.send(doctors)                                           // Sending entire doctor set
     },
@@ -49,13 +48,61 @@ const handlerFunctions = {
 
         editDoctor.name = name                                      // Change object ( the name ) 
         editDoctor.phoneNumber = phoneNumber                        // Change object ( the phoneNumber ) 
-        editDoctor.address = address                                // Change object ( the address ) 
-        editDoctor.categoryId = categoryId                          // Change object ( the categoryId ) 
+        // editDoctor.address = address                                // Change object ( the address ) 
+        // editDoctor.categoryId = categoryId                          // Change object ( the categoryId ) 
 
-        await editDoctor.save()                                      // Deleting the identiified doctor
-        const doctors = await Doctor.findAll()                       // Getting all the udpated list of the doctors
-        res.send(doctors)                                            // Sending entire doctor set
-    }
+        await editDoctor.save()                                     // Deleting the identiified doctor
+        const doctors = await Doctor.findAll()                      // Getting all the udpated list of the doctors
+        res.send(doctors)                                           // Sending entire doctor set
+    },
+
+    addAccount: async (req, res) => {
+        const {email, password} = req.body                          // Destructs properties from 'body' of incoming request (req)
+        const newRow = {                                            // Creating new account row                                 
+         email: email,                                              // email property
+         password: password                                         // password property
+  
+        }
+        await Account.create(newRow)                                 // Creating new account record in 'Account' database w/ values specified in 'newRow' object
+        res.send('success')                                          // Sending 'success' string
+     },
+
+     verifyAccount: async (req, res) => {
+        const {email, password} = req.body                           // Extracting 'emial' & 'password' from request parameters
+        const account = await Account.findOne({                      // Finding account you want to check
+        where: {                                                     // 'where' is just SQL 'Where' statement
+            email: email,                                            // Checking 'email' match 
+            password: password                                       // Checking 'password' match 
+            },
+        })
+
+        if (account) {                                               // If statement checking account parameters match
+            const doctor = await account.getDoctor()                 // Creating variable 'doctor' from 
+            console.log(doctor)                                      // Console Log doctor variable
+            res.send({message:'success', name: doctor.name, id: doctor.accountId })                                                          
+        }   else {
+            res.send('failure')                                      
+        }
+    },
+
+    getAccount: async (req, res) => {
+        const {id} = req.params   
+       // console.log(id);                                            // Extracting 'id' parameter from request parameters
+        const account = await Account.findByPk(+id, {               // Finding specific account
+            include: [                                              // Joining Doctor model
+                {
+                    model: Doctor
+                },
+            ]
+        })                 
+        res.send(account)                                           // Sending account
+     },
+
+    //  logOut: async (req, res) => {
+    //     const {id} = req.params                                     // Extracting 'id' parameter from request parameters
+    //     const account = await Account.findByPk(+id)                 // Finding account you want to delete - ???????
+    //     await account.destroy()                                     // Deleting identified account  - ???????
+    // },
 }
 export default handlerFunctions
 

@@ -1,7 +1,22 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet} from 'react-router-dom'
 
 function App() {
+  
+  // const navigate = useNavigate()
+
+  // const handleLogut = async (e) => {
+  //   e.preventDefault()
+
+  //   const res = await axios.post('/api/logout')
+
+  //   if(res.data.success) {
+  //     navigate('/')
+  //   } else {
+  //     alert('Failed to logout. Try again later.')
+  //   }
+  // }
+  
   return (
     <>  
     <ul>
@@ -10,12 +25,20 @@ function App() {
       </li>
 
       <li>
-          <Link to="/about">About Page</Link>
+          <Link to="/login">Login Page</Link>
       </li>
 
       <li>
-          <Link to="/login">Login Page</Link>
+          <Link to="/about">About Page</Link>
       </li>
+
+      {/* <li>
+          <Link to="/me">Your Account/Profile Page</Link>
+      </li> */}
+
+      {/* <li>
+          <LogoutButton onLogout={handleLogut} />
+      </li> */}
 
     </ul>
     <Outlet />
