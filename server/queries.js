@@ -15,23 +15,16 @@ import { Category, Doctor, Account } from "./model.js"
 
 const account = await Account.findOne({                       // Finding account you want to check
     where: {                                                  // 'where' is just SQL 'Where' statement
-        email: email,                                         // Checking 'email' match 
-        password: password                                    // Checking 'password' match 
+        accountId: 1,                                         // Checking 'email' match 
     },
+    include: {
+        model: Doctor
+    }
 })
 
 
 
-const doctor = await account.getDoctor()   
 
 
-console.log(doctor);
-
-
-
-
-
-
-
-
-
+// console.log(account);
+console.log(account);

@@ -23,11 +23,20 @@ const LandingPage = () => {
       />
     ))
   
+
+    const b = { margin: '0 10px 0 0' }
     return (                                                    
     <> 
-      <button onClick={() => handleClick(1)}>Dental</button>
-      <button onClick={() => handleClick(2)}>Doctor</button>
-      <button onClick={() => handleClick(3)}>Surgery</button>
+      <button style={b} onClick={() => handleClick(1)} >Dental</button>
+      <button style={b} onClick={() => handleClick(2)}>Medical Scans</button>
+      <button style={b} onClick={() => handleClick(3)}>Direct Primary Care</button>
+      <button style={b} onClick={() => handleClick(4)}>IVF</button>
+      <button style={b} onClick={() => handleClick(5)}>Colonoscopy</button>
+      <button style={b} onClick={() => handleClick(6)}>Urgent Care</button>
+      <button style={b} onClick={() => handleClick(7)}>Blood Tests</button>
+      <button style={b} onClick={() => handleClick(8)}>Vascetomy</button>
+      <button style={b} onClick={() => handleClick(8)}>LASIK</button>
+      <button style={b} onClick={() => handleClick(8)}>Physical Therapy</button>
     <br></br>
       {doctorsListItems} 
     </>

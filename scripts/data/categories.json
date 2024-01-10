@@ -1,13 +1,32 @@
 [
     {
-    "categoryName": "Dental"
+        "categoryName": "Dental"
     },
-
     {
-    "categoryName": "Medical Scans"
+        "categoryName": "Medical Scans"
     },
-    
     {
-    "categoryName": "Direct Primary Care"
+        "categoryName": "Direct Primary Care"
+    },
+    {
+        "categoryName": "IVF"
+    },
+    {
+        "categoryName": "Colonoscopy"
+    },
+    {
+        "categoryName": "Urgent Care"
+    },
+    {
+        "categoryName": "Blood Tests"
+    },
+    {
+        "categoryName": "Vascetomy"
+    },
+    {
+        "categoryName": "LASIK"
+    },
+    {
+        "categoryName": "Physical Therapy"
     }
 ]

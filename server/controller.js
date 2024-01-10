@@ -43,7 +43,7 @@ const handlerFunctions = {
 
     editDoctor: async (req, res) => {
         const { id } = req.params                                     // Extracting 'id' parameter from request parameters
-        const { name, phoneNumber, address, categoryId } = req.body   // Get name, phoneNumber, address, categoryId from body object
+        const { name, phoneNumber, accountId, address, categoryId } = req.body   // Get name, phoneNumber, address, categoryId from body object
         const editDoctor = await Doctor.findByPk(+id)                 // Finding the doctor you want to delete
 
         editDoctor.name = name                                        // Change object ( the name ) 
@@ -52,8 +52,24 @@ const handlerFunctions = {
         // editDoctor.categoryId = categoryId                         // Change object ( the categoryId ) 
 
         await editDoctor.save()                                       // Deleting the identiified doctor
-        const doctors = await Doctor.findAll()                        // Getting all the udpated list of the doctors
-        res.send(doctors)                                             // Sending entire doctor set
+        // const doctors = await Doctor.findAll()                     // Getting all the udpated list of the doctors
+        // res.send(doctors)          
+        
+        
+        const account = await Account.findByPk(+accountId, {                  // Finding specific account
+            include: [                                                 // Joining Doctor model
+                {
+                    model: Doctor
+                },
+            ]
+        })
+        res.send(account) 
+        
+        
+        
+        
+        
+        // Sending entire doctor set
     },
 
     addAccount: async (req, res) => {
@@ -67,8 +83,10 @@ const handlerFunctions = {
         res.send('success')                                           // Sending 'success' string
     },
 
+
+
     verifyAccount: async (req, res) => {
-        const { email, password } = req.body                          // Extracting 'emial' & 'password' from request parameters
+        const { email, password } = req.body                          // Extracting 'email' & 'password' from request parameters
         const account = await Account.findOne({                       // Finding account you want to check
             where: {                                                  // 'where' is just SQL 'Where' statement
                 email: email,                                         // Checking 'email' match 
@@ -82,6 +100,8 @@ const handlerFunctions = {
             res.send('failure')
         }
     },
+
+
 
     getAccount: async (req, res) => {
         const { id } = req.params
