@@ -3,77 +3,55 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-
-
+// import AccountDoctorCard from './components/AccountDoctorCard.jsx'
 
 
 
 function AccountPage(props) {
-
   const { account } = useLoaderData()
-  const [doctorsName, setDoctorsName] = useState(account.doctor.name)
-  const [phoneNumber, setPhoneNumber] = useState(account.doctor.phoneNumber)
-  const [isEditing, setIsEditing] = useState(false)
 
 
-  // console.log('string', account);
-  console.log('work dammit');
-  console.log(account);
 
-// Function to change back to normal
-  const changeNormalMode = () => {
-    const bodyObj = {
-      name: doctorsName,
-      phoneNumber: phoneNumber
-    }
+  // Delete account function
+  const deleteAccount = () => {
+   const confirmDelete = window.confirm('Sure want to delete account?')    // Variable: confirm user wants to delete account
 
-    axios.put(`/api/doctor/${account.doctor.doctorId}`, bodyObj).then((res) => {
-      setIsEditing(false)
-    })
+   if(confirmDelete) {                                                     // Confirm if statement
+    axios.delete(`/api/account/${account.accountId}`)
+      .then((res) => {
+      })
+      .catch((error) => {
+      })
+  }
   }
 
-// Clicking the Save button //
-// 1. Update the values in the database
 
-// A. Make a onSave function that is referenced in the return 
-// 2. Switch back to non edit mode
+// const doctorList = 'something'  .map((doctor) => 
+
+//   <AccountDoctorCard
+//     isEditing={editMode}
+//     key={doctor.id}
+//     key={doctor.name}
+//     key={doctor.phoneNumber}
+// />
+
+// )
 
 
 
 
 
 
-  // Created an if/else statement to return the 'Save' button or 'Delete' & 'Edit' buttons
-  return (isEditing) ? (
+
+  // Created an if/else statement to return the 'Save' button or 'Delete' & 'Edit' buttons (put all this in a loop)
+  return (
     <>
-      <button onClick={changeNormalMode} >Save</button>
+      <p>{account.accountId}</p>
+      <button onClick={() => deleteAccount()}>Delete</button>
 
-      <input
-        type="text"
-        value={doctorsName}
-        onChange={(e) => setDoctorsName(e.target.value)}
-      />
+    {/* {doctorList} */}
 
-      <input
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
-    </>
-
-  ) : (
-
-    <>
-      <p>{doctorsName}</p>
-
-      <p>{phoneNumber}</p>
-
-      <button>Delete</button>
-
-      <button onClick={()=> setIsEditing(true)}>Edit</button>
     </>
   )
 }
-
-
 export default AccountPage

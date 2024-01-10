@@ -9,6 +9,8 @@ console.log('Syncing database...')
 await db.sync({force: true})            
 console.log('Seeding database');
 
+
+
 // Loop over each category (in category data in categories.json)
 const categoriesInDB = await Promise.all(
     categoryData.map(async (category) => {
@@ -24,6 +26,26 @@ const categoriesInDB = await Promise.all(
     return newCategory
 })
 )
+
+
+
+// Loop over each account (in account data in account.json)
+const accountsInDB = await Promise.all(
+    accountData.map(async (account) => {
+
+    // Destructing columns from 'doctor' object
+    const {email, password} = account
+
+    // Adding account to account table
+    const newAccount = await Account.create({
+        email,
+        password
+    })
+    // Return new account to map array return
+    return newAccount
+})
+)
+
 
 // Loop over each doctor (in doctor data in doctors.json)
 const doctorsInDB = await Promise.all(
@@ -45,22 +67,7 @@ const doctorsInDB = await Promise.all(
 })
 )
 
-// Loop over each account (in account data in account.json)
-const accountsInDB = await Promise.all(
-    accountData.map(async (account) => {
 
-    // Destructing columns from 'doctor' object
-    const {email, password} = account
-
-    // Adding account to account table
-    const newAccount = await Account.create({
-        email,
-        password
-    })
-    // Return new account to map array return
-    return newAccount
-})
-)
 
 await db.close()
 console.log('Finished seeding dateabase.')

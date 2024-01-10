@@ -106,13 +106,14 @@ Account.init(
 
 
 
-// Define Relationship: movie to rating -> one to many
+// Define Relationship: category to doctor -> one to many
 Category.hasMany(Doctor, {foreignKey: 'categoryId'})
 Doctor.belongsTo(Category, {foreignKey: 'categoryId'})
 
-
-Account.hasOne(Doctor, {foreignKey: 'accountId'})
+// Define Relationship: account to doctor -> one to many
+Account.hasMany(Doctor, {foreignKey: 'accountId'})
 Doctor.belongsTo(Account, {foreignKey: 'accountId'})
+
 
 // Forcing changes. It clears previously existing tables. Creates new tables
 // db.sync({force: true})

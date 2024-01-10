@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import LoginForm from '../components/LoginForm.jsx'   // Import child componet (LoginForm)
+import LoginForm from '../components/LoginForm.jsx'  
 
 // Summary //
 // React component responsible for handling user login
@@ -23,7 +23,9 @@ function LoginPage() {
       dispatch({ type: 'login', payload: { name: res.data.name, id:res.data.id }})
       alert('Login success!')
 
+      console.log(res.data);
       navigate(`/account/${res.data.id}`)
+
 
     } else {
       alert('Login failed!')
