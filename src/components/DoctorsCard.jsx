@@ -2,6 +2,7 @@ import React from 'react'
 import './DoctorCard.css'
 import { Link } from 'react-router-dom';
 
+// DoctorCard component
 const DoctorsCard = (props) => {
     return (
         <div className = "card" >

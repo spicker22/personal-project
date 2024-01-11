@@ -37,8 +37,20 @@ const handlerFunctions = {
         const { id } = req.params                                    // Extracting 'id' parameter from request parameters
         const doctor = await Doctor.findByPk(+id)                    // Finding doctor you want to delete
         await doctor.destroy()                                       // Deleting identified doctor
-        const doctors = await Doctor.findAll()                       // Getting all udpated list of the doctors
-        res.send(doctors)                                            // Sending entire doctor set
+        const account = await Account.findByPk(doctor.accountId, {                  // Finding specific account
+            include: [                                                 // Joining Doctor model
+                {
+                    model: Doctor
+                },
+            ]
+        })
+        res.send(account) 
+        
+        
+        
+        
+        
+        // Sending entire doctor set
     },
 
     editDoctor: async (req, res) => {
@@ -46,6 +58,10 @@ const handlerFunctions = {
         const { name, phoneNumber, accountId, address, categoryId } = req.body   // Get name, phoneNumber, address, categoryId from body object
         const editDoctor = await Doctor.findByPk(+id)                 // Finding the doctor you want to delete
 
+        if (editDoctor.accountId !== req.session.accountId) {
+            res.send({success:false})                               // 
+        }
+        
         editDoctor.name = name                                        // Change object ( the name ) 
         editDoctor.phoneNumber = phoneNumber                          // Change object ( the phoneNumber ) 
         // editDoctor.address = address                               // Change object ( the address ) 
@@ -86,7 +102,11 @@ const handlerFunctions = {
 
 
     verifyAccount: async (req, res) => {
-        const { email, password } = req.body                          // Extracting 'email' & 'password' from request parameters
+        const { email, password } = req.body    
+        
+        const sess = req.session
+
+        // Extracting 'email' & 'password' from request parameters
         const account = await Account.findOne({                       // Finding account you want to check
             where: {                                                  // 'where' is just SQL 'Where' statement
                 email: email,                                         // Checking 'email' match 
@@ -94,7 +114,8 @@ const handlerFunctions = {
             },
         })
 
-        if (account) {                                                // If statement checking account parameters match                   
+        if (account) {                                             // If statement checking account parameters match                   
+            sess.accountId = account.accountId
             res.send({ message: 'success', name: 'name', id: account.accountId })
         } else {
             res.send('failure')
@@ -105,6 +126,13 @@ const handlerFunctions = {
 
     getAccount: async (req, res) => {
         const { id } = req.params
+        console.log(id);
+
+        if (+id !== req.session.accountId) {
+            return res.send({failed:true})                               // 
+        }
+
+
         const account = await Account.findByPk(+id, {                  // Finding specific account
             include: [                                                 // Joining Doctor model
                 {

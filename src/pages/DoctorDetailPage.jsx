@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 
-function DoctorDetailPage() {             // DoctorDetailPage function
+// DoctorDetailPage component
+function DoctorDetailPage() {            
     let { doctor } = useLoaderData();     // Get userId param from URL using 'useLoaderData()
 
     return (

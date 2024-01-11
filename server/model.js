@@ -2,6 +2,13 @@ import { Model, DataTypes } from 'sequelize';
 import util from 'util';
 import connectToDB from './db.js';
 
+
+// Reminder Notes
+// To get into the database -> 'psql doctors'
+// To then get into each table -> 'select * from doctors;' or 'select * from accounts;' etc
+// To get out of the psql database -> '\q'
+
+
 // Establishes connection to PostgreSQL db using 'connectToDB function
 // Resulting database connection object 'db' is used
 export const db = await connectToDB('postgresql:///doctors');

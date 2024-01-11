@@ -7,12 +7,7 @@ function AccountDoctorCard(props) {
   const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber)
   const [isEditing, setIsEditing] = useState(false)
 
-
-
-  console.log(doctorsName)
-
-
-  // Save function
+  // Save doctor function
   const saveFunction = () => {
     const bodyObj = {
       name: doctorsName,
@@ -20,7 +15,7 @@ function AccountDoctorCard(props) {
       accountId: accountId
     }
 
-    // Axios put request to insert data into database
+    // Axios put request to insert doctor data into database
     axios.put(`/api/doctor/${doctorId}`, bodyObj)
       .then((res) => {
         setCurrentData(res.data)
@@ -28,7 +23,22 @@ function AccountDoctorCard(props) {
       })
   }
 
-  // Created an if/else statement to return the 'Save' button or 'Delete' & 'Edit' buttons (put all this in a loop)
+  // Delete doctor function
+  const deleteDoctor = () => {
+    const confirmDelete = window.confirm('Sure want to delete doctor?')
+    if (confirmDelete) {
+      axios.delete(`/api/doctor/${doctorId}`)
+        .then((res) => {
+          setCurrentData(res.data)
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.error('Error deleting doctor:', error);
+        })
+    }
+  }
+
+  // If/else statement with 'Save' or 'Edit/Delete' buttons and values
   return (isEditing) ? (
     <>
       <button onClick={saveFunction}>Save</button>
@@ -46,16 +56,14 @@ function AccountDoctorCard(props) {
   ) : (
     <>
       <button onClick={() => setIsEditing(true)}>Edit</button>
+      <button onClick={() => deleteDoctor()}>Delete</button>
       <p>{props.name}</p>
       <p>{props.phoneNumber}</p>
-
-      {/* <p>{doctorsName}</p>
-      <p>{phoneNumber}</p> */}
-
-      <button onClick={() => deleteDoctor()}>Delete</button>
-      {/* <button onClick={changeNormalMode}>Save</button> */}
-
     </>
   )
 }
 export default AccountDoctorCard
+
+
+
+

@@ -7,12 +7,7 @@ const DoctorsName = (props) => {
   // Destruct so can use the properties as variables  
   const {isEditing, value, setDoctorsName} = props
 
-  // Ternary statement is the short hand version of the if/else statement.
-  // ? is the end of the condition
-  // : is the else statement
-  return isEditing ? (
-
-    // The if statement
+  return isEditing ? (      // The if statement
     <td>
         <input 
         type = "text" 
@@ -20,13 +15,14 @@ const DoctorsName = (props) => {
         onChange = {(e) => setDoctorsName(e.target.value)}
         />
     </td>
-  ) : (
-
-     // The else statement. 
-   <td>
+  ) : (                       // The else statement. 
+   <td>       
     {value}
    </td>
   )
 }
 
 export default DoctorsName
+  // Ternary statement is the short hand version of the if/else statement.
+  // ? is the end of the condition
+  // : is the else statement
