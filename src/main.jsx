@@ -2,7 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
+import './App.css'
+
 import axios from 'axios';
 import store from './ducks/store.js'
 import { redirect } from "react-router-dom";

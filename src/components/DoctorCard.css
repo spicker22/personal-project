@@ -1,11 +1,50 @@
 div.card {
-    border-radius: 3px;
-    border: 3px solid black;
+    border-radius: 8px;
+    border: 1px solid rgb(216, 216, 216);
     margin: 2em;
     padding: 1em;
     display: inline-block;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     min-width: 200px;
     min-height: 320px;
   }
+
+  .doctor-card-img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: medium;
+  }
+
+  .address-italic {
+    font-style: italic;
+}
+
+.viewButton {
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 0.3em 0.5em;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  display: inline-block;
+  margin: 0;
+  margin-left: auto;
+ 
+}
+
+.viewButton:hover {
+  font-weight: 700;
+  border: 1.25px solid #252525;
+  background-color: #ffffff;
+  color: #000000;
+}

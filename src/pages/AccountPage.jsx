@@ -2,6 +2,9 @@ import { useNavigate, Link, useLoaderData } from 'react-router-dom';
 import { useState } from 'react'
 import axios from 'axios';
 import AccountDoctorCard from '../components/AccountDoctorCard.jsx'
+import './AccountPage.css'
+
+// import './LandingPage.css'
 
 // AccountPage component
 function AccountPage(props) {
@@ -38,10 +41,20 @@ function AccountPage(props) {
   // AccountId, Account 'Delete' button, & list of associated doctors
   return (
     <>
-      <p>{currentData.accountId}</p>
-      <button onClick={() => deleteAccount()}>Delete</button>
+      <div className="account-container">
+        <p>Account {currentData.accountId}</p>
+        <button3 onClick={() => deleteAccount()}>Delete</button3>
+      </div>
+
+
+
       <br></br>
       {doctorList}
+
+      {/* <span class="material-symbols-outlined">
+        close
+      </span>
+      <i class='material-icons'>close</i> */}
     </>
   )
 }

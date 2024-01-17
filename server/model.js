@@ -72,6 +72,9 @@ Doctor.init(
     accountId: {
       type: DataTypes.INTEGER
     },
+    imgURL: {
+      type: DataTypes.STRING
+    }
   },
   {
     modelName: 'doctor',

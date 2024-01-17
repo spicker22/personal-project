@@ -1,0 +1,14 @@
+.doctor-card-img2 {
+    width: 25%;  /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    border-radius: 8px;
+}
+
+.profile-body {
+    margin: 2em;
+    padding: 1em;
+    display: inline-block;
+    text-align: left;
+    min-width: 200px;
+    min-height: 320px;
+  }

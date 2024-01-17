@@ -1,0 +1,41 @@
+
+
+  .doctor-info-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+  }
+
+  .textAndInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .ADCbutton {
+    align-items: right;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 0.4em 1.2em;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    display: inline-block;
+    margin: 15px;
+    width: 10%;
+
+  }
+
+  .ADCbutton:hover {
+    font-weight: 700;
+    border: 1.25px solid #252525;
+  }
+  
+
+

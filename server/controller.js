@@ -21,12 +21,14 @@ const handlerFunctions = {
     },
 
     addDoctor: async (req, res) => {
-        const { name, phoneNumber, address, categoryId } = req.body  // Destructs properties from 'body' of incoming request (req)
+        const { name, phoneNumber, imgURL, address, categoryId } = req.body  // Destructs properties from 'body' of incoming request (req)
         const newRow = {                                             // Creating new doctor row                                 
             name: name,                                              // name property
             phoneNumber: phoneNumber,                                // phoneNumber property
+            imgURL: imgURL,                                          // imgURL property
             address: address,                                        // address property
             categoryId: categoryId                                   // categoryId property
+                                                     
         }
         await Doctor.create(newRow)                                  // Creating new doctor record in 'Doctor' database w/ values specified in 'newRow' object
         const doctors = await Doctor.findAll()                       // Getting all doctors
@@ -37,33 +39,28 @@ const handlerFunctions = {
         const { id } = req.params                                    // Extracting 'id' parameter from request parameters
         const doctor = await Doctor.findByPk(+id)                    // Finding doctor you want to delete
         await doctor.destroy()                                       // Deleting identified doctor
-        const account = await Account.findByPk(doctor.accountId, {                  // Finding specific account
-            include: [                                                 // Joining Doctor model
+        const account = await Account.findByPk(doctor.accountId, {   // Finding specific account
+            include: [                                               // Joining Doctor model
                 {
                     model: Doctor
                 },
             ]
         })
-        res.send(account) 
-        
-        
-        
-        
-        
-        // Sending entire doctor set
+        res.send(account)                                            // Sending account
     },
 
     editDoctor: async (req, res) => {
         const { id } = req.params                                     // Extracting 'id' parameter from request parameters
-        const { name, phoneNumber, accountId, address, categoryId } = req.body   // Get name, phoneNumber, address, categoryId from body object
+        const { name, phoneNumber, accountId, imgURL } = req.body     // Get name, phoneNumber, address, categoryId from body object
         const editDoctor = await Doctor.findByPk(+id)                 // Finding the doctor you want to delete
 
         if (editDoctor.accountId !== req.session.accountId) {
-            res.send({success:false})                               // 
+            res.send({success:false})                                
         }
         
         editDoctor.name = name                                        // Change object ( the name ) 
         editDoctor.phoneNumber = phoneNumber                          // Change object ( the phoneNumber ) 
+        editDoctor.imgURL = imgURL                                    // Change object ( the imgURL )
         // editDoctor.address = address                               // Change object ( the address ) 
         // editDoctor.categoryId = categoryId                         // Change object ( the categoryId ) 
 

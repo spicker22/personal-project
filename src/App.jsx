@@ -1,8 +1,56 @@
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import Footer from './components/Footer';
+import './App.css'
+
+function App() {
+    return (
+        <>
+            <Navbar className="w-100" data-bs-theme="dark">
+                <Container>
+                    <div className="nav-container">
+                        <Nav.Link as={Link} to="/" className="custom-nav-link1">Lightpost Health</Nav.Link>
+                        <Nav.Link as={Link} to="/login" className="custom-nav-link2">Login</Nav.Link>
+                    </div>
+                </Container>
+            </Navbar>
+            <br></br>
+            <div class="full-width-line-top"></div>
+            <br></br>
+            <Outlet />
+            <br></br>
+            <div class="full-width-line-bottom"></div>
+            <br></br>
+            <Footer />
+        </>
+    )
+}
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from 'react'
 // import { Link, Outlet} from 'react-router-dom'
 
 // function App() {
-  
+
 //   return (
 //     <>  
 //     <ul>
@@ -42,101 +90,16 @@
 
 
 
+// const navigate = useNavigate()
 
+// const handleLogut = async (e) => {
+//   e.preventDefault()
 
+//   const res = await axios.post('/api/logout')
 
-
-
-
-
-
-
-
-
-
-
-
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-
-function Navigation() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          Lightpost Health
-        </Link>
-
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
-function App() {
-  return (
-    <>
-      <Navigation />
-      <div className="container mt-3">
-        <Outlet />
-      </div>
-    </>
-  );
-}
-
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // const navigate = useNavigate()
-
-  // const handleLogut = async (e) => {
-  //   e.preventDefault()
-
-  //   const res = await axios.post('/api/logout')
-
-  //   if(res.data.success) {
-  //     navigate('/')
-  //   } else {
-  //     alert('Failed to logout. Try again later.')
-  //   }
-  // }
+//   if(res.data.success) {
+//     navigate('/')
+//   } else {
+//     alert('Failed to logout. Try again later.')
+//   }
+// }

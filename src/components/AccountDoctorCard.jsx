@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import './AccountDoctorCard.css'
 
 function AccountDoctorCard(props) {
   const { id, setCurrentData, doctorId, accountId } = props
@@ -41,24 +42,51 @@ function AccountDoctorCard(props) {
   // If/else statement with 'Save' or 'Edit/Delete' buttons and values
   return (isEditing) ? (
     <>
-      <button onClick={saveFunction}>Save</button>
-      <input
-        type="text"
-        value={doctorsName}
-        onChange={(e) => setDoctorsName(e.target.value)}
-      />
-      <input
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-      />
+      <div class="full-width-line-account"></div>
+      <div className="doctor-info-container">
+
+        <div className='textAndInput'>
+          <p>Name:</p>
+          <input
+            type="text"
+            value={doctorsName}
+            onChange={(e) => setDoctorsName(e.target.value)}
+          />
+        </div>
+
+        <div className='textAndInput'>
+          <p>Phone Number:  </p>
+          <input
+            type="text"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </div>
+
+        <button class="ADCbutton" onClick={saveFunction}>Save</button>
+
+      </div>
     </>
   ) : (
     <>
-      <button onClick={() => setIsEditing(true)}>Edit</button>
-      <button onClick={() => deleteDoctor()}>Delete</button>
-      <p>{props.name}</p>
-      <p>{props.phoneNumber}</p>
+      <div class="full-width-line-account"></div>
+      <div className="doctor-info-container">
+        <div>
+          <p>Doctor</p>
+          <p>Name: {props.name}</p>
+          <p>Phone number: {props.phoneNumber}</p>
+        </div>
+        <div>
+          <button class="ADCbutton" onClick={() => setIsEditing(true)}>Edit</button>
+          <button class="ADCbutton" onClick={() => deleteDoctor()}>Delete</button>
+        </div>
+        
+      </div>
+
+
+
+
+
     </>
   )
 }

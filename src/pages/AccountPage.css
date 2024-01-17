@@ -1,0 +1,40 @@
+
+  .account-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    width: 40vw 
+  }
+
+  .p {
+    font-size: 1.5em; /* Adjust as needed */
+    font-style: italic;
+  }
+
+ button3 {
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 0.4em 1.2em;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    display: inline-block;
+    margin: 15px;
+  }
+
+ button3:hover {
+    font-weight: 700;
+    border: 1.25px solid #252525;
+  }
+
+
+  .full-width-line-account {
+    border-top: 1px solid #b9b9b9;
+    width: 100%;
+    margin-top: 40px; 
+  }
+
+

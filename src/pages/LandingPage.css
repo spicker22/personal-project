@@ -1,0 +1,30 @@
+.catButton {
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  display: inline-block;
+  margin: 15px;
+}
+
+
+.catButton:hover {
+  font-weight: 700;
+  border: 1.25px solid #252525;
+}
+
+
+#dan {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+  flex-wrap: wrap;
+  padding: 0% 10%;
+  background-color: aqua;
+}
