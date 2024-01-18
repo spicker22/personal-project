@@ -1,41 +1,50 @@
 
+.full-width-line-account {
+  border-top: 1px solid #b9b9b9;
+  width: 40%;
+  margin-top: 0px; 
+  padding-top: 10px
+}
 
-  .doctor-info-container {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    justify-content: center;
-  }
+.doctor-info-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  width: 40vw ;
+  padding-top: 20px;
+}
 
-  .textAndInput {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 20px;
-  }
+.textAndInput {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 20px;
+}
 
-  .ADCbutton {
-    align-items: right;
-    border-radius: 8px;
-    border: 1px solid #c4c4c4;
-    padding: 0.4em 1.2em;
-    font-size: 1em;
-    font-weight: 400;
-    font-family: inherit;
-    background-color: #ffffff;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    display: inline-block;
-    margin: 15px;
-    width: 10%;
+.ADCbutton {
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 0.4em 1.2em;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  display: inline-block;
+  margin: 15px;
+  justify-content: center;
+}
 
-  }
+.ADCbutton:hover {
+  font-weight: 700;
+  border: 1.25px solid #252525;
+}
 
-  .ADCbutton:hover {
-    font-weight: 700;
-    border: 1.25px solid #252525;
-  }
-  
-
-
+#title {
+  font-size: 1.5em; /* Adjust as needed */
+  Align-self: flex-end;
+  background-color: rgb(255, 255, 255);
+}

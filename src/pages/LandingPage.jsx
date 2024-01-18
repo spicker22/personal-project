@@ -34,7 +34,7 @@ const LandingPage = () => {
       <button className="catButton" onClick={() => handleClick(2)}>Medical Scans</button>
       <button className="catButton" onClick={() => handleClick(3)}>Direct Primary Care</button>
       <button className="catButton" onClick={() => handleClick(4)}>IVF</button>
-      <button className="catButton" onClick={() => handleClick(8)}>Vascetomy</button>
+      <button className="catButton" onClick={() => handleClick(8)}>Vasectomy</button>
       <button className="catButton" onClick={() => handleClick(9)}>LASIK</button>
       <br></br>
       <div id='dan'> {doctorsListItems} </div>

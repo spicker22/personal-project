@@ -140,11 +140,14 @@ const handlerFunctions = {
         res.send(account)                                              // Sending account
     },
 
-    //  logOut: async (req, res) => {
-    //     const {id} = req.params                                     // Extracting 'id' parameter from request parameters
-    //     const account = await Account.findByPk(+id)                 // Finding account you want to delete - ???????
-    //     await account.destroy()                                     // Deleting identified account  - ???????
-    // },
+     logOut: async (req, res) => {
+        req.session.destroy((err) => {
+            if (err) {
+              console.log(err);
+            }
+            res.send('Logout Successful');
+          });                                  
+    },
 }
 export default handlerFunctions
 

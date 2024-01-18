@@ -3,17 +3,18 @@ div.card {
     border: 1px solid rgb(216, 216, 216);
     margin: 2em;
     padding: 1em;
-    display: inline-block;
+    display: flex;
     text-align: left;
     cursor: pointer;
     min-width: 200px;
     min-height: 320px;
   }
 
-  .doctor-card-img {
-    width: 100%; 
-    height: auto; 
-    border-radius: 8px;
+.doctor-card-img {
+  width: 100%; 
+  height: 60%; 
+  border-radius: 8px;
+  object-fit: cover; /* This will ensure the image covers the whole area without distortion */
 }
 
 .title {
@@ -21,7 +22,7 @@ div.card {
     font-weight: medium;
   }
 
-  .address-italic {
+.address-italic {
     font-style: italic;
 }
 
@@ -39,6 +40,8 @@ div.card {
   display: inline-block;
   margin: 0;
   margin-left: auto;
+  float: right; /* Add this line */
+
  
 }
 

@@ -16,6 +16,7 @@ import AccountPage from './pages/AccountPage.jsx'
 import DoctorDetailPage from './pages/DoctorDetailPage.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import LoginPage from './pages/Login.jsx'
+// import LogoutButton from './components/Logout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
   },
+
+  // {                                 // Child route (Login page)
+  //   path: "/logout",
+  //   element: <LogoutButton />,
+  // },
 
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

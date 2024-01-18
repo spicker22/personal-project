@@ -23,7 +23,7 @@ app.use(                                        // Top level middleware function
 
 
 // Destructs to extract specific functions
-const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor, addAccount, verifyAccount, getAccount} = handlerFunctions   
+const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor, addAccount, verifyAccount, getAccount, logOut} = handlerFunctions   
 
 // Endpoints
 app.get('/api/doctors/:categoryId', getDoctors)  // Retrieves a list of doctors
@@ -32,33 +32,20 @@ app.post('/api/doctor', addDoctor)               // Adds a doctor
 app.delete('/api/doctor/:id', deleteDoctor)      // Deletes a doctors
 app.put('/api/doctor/:id', editDoctor)           // Edits a doctors
 app.post('/api/register', addAccount)            // Adds account
-
 app.post('/api/auth', verifyAccount)             // Handles account/user login/authentication
 app.get('/api/account/:id', getAccount)          // Retrieves info about specific account
-
-
-app.get('/api/logout', (req, res) => {           // Handles user logout
-    req.session.destroy((err) => {
-      if (err) {
-        console.log(err);
-      }
-      res.redirect('/');
-    });
-  });
-
-
-
-
-
-
-
-
-
-
+app.get('/api/logout', logOut)
 
 
 // Open door to server
 ViteExpress.listen(app, 2319, () => console.log(`we have a 2319 report to http://localhost:2319`))     // 2319 is the port
+
+
+
+
+
+
+
 
 // Note
 // Ensure the package.json file has the following in the scripts: 

@@ -6,6 +6,7 @@ function AccountDoctorCard(props) {
   const { id, setCurrentData, doctorId, accountId } = props
   const [doctorsName, setDoctorsName] = useState(props.name)
   const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber)
+  const [address, setAddress] = useState(props.address)
   const [isEditing, setIsEditing] = useState(false)
 
   // Save doctor function
@@ -13,6 +14,7 @@ function AccountDoctorCard(props) {
     const bodyObj = {
       name: doctorsName,
       phoneNumber: phoneNumber,
+      address: address,
       accountId: accountId
     }
 
@@ -43,7 +45,11 @@ function AccountDoctorCard(props) {
   return (isEditing) ? (
     <>
       <div class="full-width-line-account"></div>
+
+
       <div className="doctor-info-container">
+
+
 
         <div className='textAndInput'>
           <p>Name:</p>
@@ -54,6 +60,7 @@ function AccountDoctorCard(props) {
           />
         </div>
 
+
         <div className='textAndInput'>
           <p>Phone Number:  </p>
           <input
@@ -62,6 +69,17 @@ function AccountDoctorCard(props) {
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </div>
+
+
+        <div className='textAndInput'>
+          <p>City:  </p>
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+
 
         <button class="ADCbutton" onClick={saveFunction}>Save</button>
 
@@ -72,9 +90,10 @@ function AccountDoctorCard(props) {
       <div class="full-width-line-account"></div>
       <div className="doctor-info-container">
         <div>
-          <p>Doctor</p>
+          <p id='title'>Doctor</p>
           <p>Name: {props.name}</p>
           <p>Phone number: {props.phoneNumber}</p>
+          <p>City: {props.address}</p>
         </div>
         <div>
           <button class="ADCbutton" onClick={() => setIsEditing(true)}>Edit</button>

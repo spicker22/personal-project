@@ -3,8 +3,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import AccountDoctorCard from '../components/AccountDoctorCard.jsx'
 import './AccountPage.css'
-
-// import './LandingPage.css'
+import { useDispatch } from 'react-redux';
 
 // AccountPage component
 function AccountPage(props) {
@@ -12,6 +11,8 @@ function AccountPage(props) {
   const [currentData, setCurrentData] = useState(account)
   const [isEditing, setIsEditing] = useState(false)
   const [editedData, setEditedData] = useState(account.doctors)
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   // Delete account function
   const deleteAccount = () => {
@@ -21,6 +22,22 @@ function AccountPage(props) {
         .then((res) => {
         })
         .catch((error) => {
+        })
+    }
+  }
+
+  // Logout account function
+  const logoutAccount = () => {
+    const confirmLogout = window.confirm('Sure want to logout?')
+
+    if (confirmLogout) {
+      axios.get(`/api/logout`)
+        .then((res) => {
+          dispatch({ type: 'logout' });
+          navigate('/');
+        })
+        .catch((error) => {
+          console.log(error);
         })
     }
   }
@@ -35,27 +52,29 @@ function AccountPage(props) {
       key={doctor.doctorId}
       name={doctor.name}
       phoneNumber={doctor.phoneNumber}
+      address={doctor.address}
     />
   })
 
   // AccountId, Account 'Delete' button, & list of associated doctors
   return (
-    <>
+    <div className='test'>
       <div className="account-container">
-        <p>Account {currentData.accountId}</p>
-        <button3 onClick={() => deleteAccount()}>Delete</button3>
+        <p id='text'>Account {currentData.accountId}</p>
+        
+        <button className='deleteButton' onClick={() => deleteAccount()}>Delete</button>
+
+        <button className='logoutButton' onClick={() => logoutAccount()}>Logout</button>
+
       </div>
-
-
-
-      <br></br>
+     
       {doctorList}
 
       {/* <span class="material-symbols-outlined">
         close
       </span>
       <i class='material-icons'>close</i> */}
-    </>
+    </div>
   )
 }
 export default AccountPage

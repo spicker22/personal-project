@@ -1,186 +1,186 @@
-[
-      {
-        "name": "Dr. Douglas B. Ball",
-        "phoneNumber": "385-283-0147",
-        "address": "Orem, UT",
-        "categoryId": 1,
-        "accountId": 1,
-        "imgURL": "https://willowcreekdental.com/wp-content/uploads/2018/02/exterior2.jpg"
-      },
-      {
-        "name": "Mark Ence, DDS",
-        "phoneNumber": "435-628-2667",
-        "address": "St.George, UT",
-        "categoryId": 1,
-        "accountId": 2,
-        "imgURL": "https://henryscheinequipmentcatalog.com/wordpress/wp-content/uploads/2018/08/Untitled-3.jpg"
-      },
-      {
-        "name": "Main Street Dental",
-        "phoneNumber": "801-467-2255",
-        "address": "Salt Lake City, UT",
-        "categoryId": 1,
-        "accountId": 3,
-        "imgURL": "https://gp-assets-1.growthplug.com/website_files/4314/4sd75u.png"
-      },
-      {
-        "name": "Dr. Smith",
-        "phoneNumber": "801-467-2256",
-        "address": "Draper, UT",
-        "categoryId": 1,
-        "accountId": 4,
-        "imgURL": "https://images.squarespace-cdn.com/content/v1/567acee20ab377f38f7f0c72/1587764082666-AJ9VA0LHSSM9TPKPA7JF/IMG_9724-3.jpg"
-      },
-      {
-        "name": "TaylorMedMRI",
-        "phoneNumber": "385-831-7674",
-        "address": "Lindon, UT",
-        "categoryId": 2,
-        "accountId": 5,
-        "imgURL": "https://images.squarespace-cdn.com/content/v1/6266bfc1369fbc3df07f66a7/b7a4885e-1e1c-4a37-9bd0-98efe16ce043/TaylorMED-logo.png?format=1500w"
-      },
-      {
-        "name": "Wasatch Imaging",
-        "phoneNumber": "801-576-1290",
-        "address": "Sandy, UT",
-        "categoryId": 2,
-        "accountId": 6,
-        "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
-      },
-      {
-        "name": "Toole Valley Imaging",
-        "phoneNumber": "435-882-1674",
-        "address": "Toole, UT",
-        "categoryId": 2,
-        "accountId": 6,
-        "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
-      },
-      {
-        "name": "Logan MRI Clinic",
-        "phoneNumber": "435-258-9598",
-        "address": "Logan, UT",
-        "categoryId": 2,
-        "accountId": 6,
-        "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
-      },
-      {
-        "name": "Logan CT Clinic",
-        "phoneNumber": "435-258-9598",
-        "address": "Logan, UT",
-        "categoryId": 2,
-        "accountId": 6,
-        "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
-      },
-      {
-        "name": "Southren Utah MRI",
-        "phoneNumber": "435-8659293",
-        "address": "Cedar City, UT",
-        "categoryId": 2,
-        "accountId": 7,
-        "imgURL": "https://delcore.org/wp-content/uploads/2021/05/LOGO-WHT-TEXT.png"
-      },
-      {
-        "name": "Cottontree Family Practice",
-        "phoneNumber": "801-377-3413",
-        "address": "Cottonwood Heights, UT",
-        "categoryId": 3,
-        "accountId": 8,
-        "imgURL": "https://www.cottontreefamily.com/wp-content/uploads/2015/01/cropped-Logo-web-01.png"
-      },
-      {
-        "name": "GratefulMD",
-        "phoneNumber": "801-706-0171",
-        "address": "West Jordan, UT",
-        "categoryId": 3,
-        "accountId": 9,
-        "imgURL": "https://e8cz8rzvq7g.exactdn.com/wp-content/uploads/2021/02/PNG-FILE-05.png"
-      },
-      {
-        "name": "OrangeMD",
-        "phoneNumber": "385-238-2133",
-        "address": "Ogden, UT",
-        "categoryId": 3,
-        "accountId": 10,
-        "imgURL": "https://images.squarespace-cdn.com/content/v1/60368e3e75938c0db4146fef/1614189257076-35OFAI3U3YK6TO46JOD6/orangemd-logo-full-color-rgb.png?format=1500w"
-      },
-      {
-        "name": "Private MD Care",
-        "phoneNumber": "801-382-7879",
-        "address": "Salt Lake City, UT",
-        "categoryId": 3,
-        "accountId": 11,
-        "imgURL": "https://privatemdcare.com/wp-content/uploads/2020/07/logo-sans-tag-2.png"
-      },
-      {
-        "name": "Reproductive Care Center",
-        "phoneNumber": "801-784-5484",
-        "address": "Clearfield, UT",
-        "categoryId": 4,
-        "accountId": 12,
-        "imgURL": "https://www.fertilitydr.com/wp-content/uploads/2022/04/RCC-Logo-blue.png.webp"
-      },
-      {
-        "name": "East Bay Fertility Center",
-        "phoneNumber": "801-377-0580",
-        "address": "Payson, UT",
-        "categoryId": 4,
-        "accountId": 13,
-        "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
-      },
-      {
-        "name": "Idaho Fertility Center",
-        "phoneNumber": "208-529-2019",
-        "address": "Idaho Falls, Idaho",
-        "categoryId": 4,
-        "accountId": 14,
-        "imgURL": "https://www.idahofertility.com/wp-content/themes/charlie-child/images/logo.svg"
-      },
-      {
-        "name": "Vasectomy Pro | T.J. Morris MD",
-        "phoneNumber": "801-609-4476",
-        "address": "Draper, UT",
-        "categoryId": 8,
-        "accountId": 15,
-        "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
-      },
-      {
-        "name": "Idaho Urologic Institute",
-        "phoneNumber": "208-639-4900",
-        "address": "Boise, ID",
-        "categoryId": 8,
-        "accountId": 16,
-        "imgURL": "https://www.idurology.com/wp-content/uploads/2014/01/iui-logo-new-2.png"
-      },
-      {
-        "name": "Kaysville Clinic",
-        "phoneNumber": "801-544-4227",
-        "address": "Kaysville, UT",
-        "categoryId": 8,
-        "accountId": 17,
-        "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
-      },
-      {
-        "name": "The Eye Institute of Utah",
-        "phoneNumber": "801-850-0796",
-        "address": "Salt Lake City, UT",
-        "categoryId": 9,
-        "accountId": 18,
-        "imgURL": "https://theeyeinstitute.b-cdn.net/wp-content/themes/eyeinst/img/logo.svg"
-      },
-      {
-        "name": "Waite Vision",
-        "phoneNumber": "801-876-6000",
-        "address": "Lehi, UT",
-        "categoryId": 9,
-        "accountId": 19,
-        "imgURL": "https://www.waitevision.com/wp-content/uploads/2019/09/Waite_logo_black.svg"
-      },
-      {
-        "name": "The Eye Assoicates",
-        "phoneNumber": "208-856-6002",
-        "address": "Meridian, UT",
-        "categoryId": 9,
-        "accountId": 20,
-        "imgURL": "https://boiselasik.com/wp-content/uploads/2018/07/Locations-Page_EXTERIOR.jpg"
-      }
-    ]
+ [
+    {
+      "name": "Dr. Douglas B. Ball",
+      "phoneNumber": "385-283-0147",
+      "address": "Orem, UT",
+      "categoryId": 1,
+      "accountId": 1,
+      "imgURL": "https://images.squarespace-cdn.com/content/v1/5a6b4b30d74cff26d307c804/1542477236732-D637749WD9USK0R8146A/Dyersville+Family+Dental+-+Exterior.jpg"
+    },
+    {
+      "name": "Mark Ence, DDS",
+      "phoneNumber": "435-628-2667",
+      "address": "St.George, UT",
+      "categoryId": 1,
+      "accountId": 2,
+      "imgURL": "https://encedentalcare.com/wp-content/uploads/2020/05/Ence-Dental-Care-Building-e1588782825975-768x614.jpg"
+    },
+    {
+      "name": "Main Street Dental",
+      "phoneNumber": "801-467-2255",
+      "address": "Salt Lake City, UT",
+      "categoryId": 1,
+      "accountId": 3,
+      "imgURL": "https://gp-assets-1.growthplug.com/website_files/4314/main.jpg"
+    },
+    {
+      "name": "Simply Smile Dental",
+      "phoneNumber": "801-613-2904",
+      "address": "West Valley, UT",
+      "categoryId": 1,
+      "accountId": 4,
+      "imgURL": "https://lh3.googleusercontent.com/p/AF1QipOSXPi0mZTn_8ym29dv7s1S3YGJVVMnr8phcAmP=w1080-h608-p-no-v0"
+    },
+    {
+      "name": "TaylorMedMRI",
+      "phoneNumber": "385-831-7674",
+      "address": "Lindon, UT",
+      "categoryId": 2,
+      "accountId": 5,
+      "imgURL": "https://images.squarespace-cdn.com/content/v1/6266bfc1369fbc3df07f66a7/9acbd1cd-9a43-42b8-88ba-f01732d3f2ee/Lindon+Office.JPG"
+    },
+    {
+      "name": "Wasatch Imaging",
+      "phoneNumber": "801-576-1290",
+      "address": "Sandy, UT",
+      "categoryId": 2,
+      "accountId": 6,
+      "imgURL": "https://s3-media0.fl.yelpcdn.com/bphoto/GqDb-9teDqfG6QrA6UYapA/o.jpg"
+    },
+    {
+      "name": "Toole Valley Imaging",
+      "phoneNumber": "435-882-1674",
+      "address": "Toole, UT",
+      "categoryId": 2,
+      "accountId": 7,
+      "imgURL": "https://s3-media2.fl.yelpcdn.com/bphoto/aYbXDBmrPwuF9Zr44Tn-Zw/l.jpg"
+    },
+    {
+      "name": "Logan MRI Clinic",
+      "phoneNumber": "435-258-9598",
+      "address": "Logan, UT",
+      "categoryId": 2,
+      "accountId": 8,
+      "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
+    },
+    {
+      "name": "Logan CT Clinic",
+      "phoneNumber": "435-258-9598",
+      "address": "Logan, UT",
+      "categoryId": 2,
+      "accountId": 9,
+      "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
+    },
+    {
+      "name": "Southern Utah MRI",
+      "phoneNumber": "435-8659293",
+      "address": "Cedar City, UT",
+      "categoryId": 2,
+      "accountId": 10,
+      "imgURL": "https://firstchoice-imaging.com/wp-content/uploads/2021/12/First-Choice-imaging-logo-beveled-2.png"
+    },
+    {
+      "name": "Cottontree Family Practice",
+      "phoneNumber": "801-377-3413",
+      "address": "Cottonwood Heights, UT",
+      "categoryId": 3,
+      "accountId": 11,
+      "imgURL": "https://www.cottontreefamily.com/wp-content/uploads/2015/01/cropped-Logo-web-01.png"
+    },
+    {
+      "name": "GratefulMD",
+      "phoneNumber": "801-706-0171",
+      "address": "West Jordan, UT",
+      "categoryId": 3,
+      "accountId": 12,
+      "imgURL": "https://e8cz8rzvq7g.exactdn.com/wp-content/uploads/2021/02/PNG-FILE-05.png"
+    },
+    {
+      "name": "OrangeMD",
+      "phoneNumber": "385-238-2133",
+      "address": "Ogden, UT",
+      "categoryId": 3,
+      "accountId": 13,
+      "imgURL": "https://images.squarespace-cdn.com/content/v1/60368e3e75938c0db4146fef/1614189257076-35OFAI3U3YK6TO46JOD6/orangemd-logo-full-color-rgb.png?format=1500w"
+    },
+    {
+      "name": "Private MD Care",
+      "phoneNumber": "801-382-7879",
+      "address": "Salt Lake City, UT",
+      "categoryId": 3,
+      "accountId": 14,
+      "imgURL": "https://privatemdcare.com/wp-content/uploads/2020/07/logo-sans-tag-2.png"
+    },
+    {
+      "name": "Reproductive Care Center",
+      "phoneNumber": "801-784-5484",
+      "address": "Clearfield, UT",
+      "categoryId": 4,
+      "accountId": 15,
+      "imgURL": "https://www.fertilitydr.com/wp-content/uploads/2022/04/RCC-Logo-blue.png.webp"
+    },
+    {
+      "name": "East Bay Fertility Center",
+      "phoneNumber": "801-377-0580",
+      "address": "Payson, UT",
+      "categoryId": 4,
+      "accountId": 16,
+      "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
+    },
+    {
+      "name": "Idaho Fertility Center",
+      "phoneNumber": "208-529-2019",
+      "address": "Idaho Falls, Idaho",
+      "categoryId": 4,
+      "accountId": 17,
+      "imgURL": "https://www.idahofertility.com/wp-content/themes/charlie-child/images/logo.svg"
+    },
+    {
+      "name": "Vasectomy Pro | T.J. Morris MD",
+      "phoneNumber": "801-609-4476",
+      "address": "Draper, UT",
+      "categoryId": 8,
+      "accountId": 18,
+      "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
+    },
+    {
+      "name": "Idaho Urologic Institute",
+      "phoneNumber": "208-639-4900",
+      "address": "Boise, ID",
+      "categoryId": 8,
+      "accountId": 19,
+      "imgURL": "https://www.idurology.com/wp-content/uploads/2014/01/iui-logo-new-2.png"
+    },
+    {
+      "name": "Kaysville Clinic",
+      "phoneNumber": "801-544-4227",
+      "address": "Kaysville, UT",
+      "categoryId": 8,
+      "accountId": 20,
+      "imgURL": "https://www.utahinfertility.com/wp-content/uploads/2021/06/hme-logo.png"
+    },
+    {
+      "name": "The Eye Institute of Utah",
+      "phoneNumber": "801-850-0796",
+      "address": "Salt Lake City, UT",
+      "categoryId": 9,
+      "accountId": 21,
+      "imgURL": "https://theeyeinstitute.b-cdn.net/wp-content/themes/eyeinst/img/logo.svg"
+    },
+    {
+      "name": "Waite Vision",
+      "phoneNumber": "801-876-6000",
+      "address": "Lehi, UT",
+      "categoryId": 9,
+      "accountId": 22,
+      "imgURL": "https://www.waitevision.com/wp-content/uploads/2019/09/Waite_logo_black.svg"
+    },
+    {
+      "name": "The Eye Associates",
+      "phoneNumber": "208-856-6002",
+      "address": "Meridian, UT",
+      "categoryId": 9,
+      "accountId": 23,
+      "imgURL": "https://boiselasik.com/wp-content/uploads/2018/07/Locations-Page_EXTERIOR.jpg"
+    }
+  ]

@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Footer from './components/Footer';
 import './App.css'
+// import LogoutButton from './components/Logout.jsx';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <div className="nav-container">
                         <Nav.Link as={Link} to="/" className="custom-nav-link1">Lightpost Health</Nav.Link>
                         <Nav.Link as={Link} to="/login" className="custom-nav-link2">Login</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/" className="custom-nav-link2">Logout</Nav.Link> */}
                     </div>
                 </Container>
             </Navbar>

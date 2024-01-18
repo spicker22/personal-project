@@ -1,17 +1,22 @@
 
+  .test {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
   .account-container {
     display: flex;
     justify-content: space-between;
     background-color: rgb(255, 255, 255);
-    width: 40vw 
+    width: 40vw ;
+    margin-bottom: 30px
   }
 
-  .p {
-    font-size: 1.5em; /* Adjust as needed */
-    font-style: italic;
-  }
-
- button3 {
+  .deleteButton {
     border-radius: 8px;
     border: 1px solid #c4c4c4;
     padding: 0.4em 1.2em;
@@ -25,16 +30,15 @@
     margin: 15px;
   }
 
- button3:hover {
+  .deleteButton:hover {
     font-weight: 700;
     border: 1.25px solid #252525;
   }
 
-
-  .full-width-line-account {
-    border-top: 1px solid #b9b9b9;
-    width: 100%;
-    margin-top: 40px; 
+  #text {
+    font-size: 2em; /* Adjust as needed */
+    font-style: italic;
+    Align-self: flex-end;
+    background-color: rgb(255, 255, 255)
   }
-
 

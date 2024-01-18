@@ -1,14 +1,46 @@
-.doctor-card-img2 {
-    width: 25%;  /* Adjust as needed */
-    height: auto; /* Adjust as needed */
-    border-radius: 8px;
-}
-
 .profile-body {
-    margin: 2em;
-    padding: 1em;
     display: inline-block;
     text-align: left;
     min-width: 200px;
     min-height: 320px;
+  }
+
+.doctor-card-img2 {
+    width: 350px;  /* Adjust as needed */
+    height: 350px; /* Adjust as needed */
+    object-fit: cover; /* This will ensure the image covers the whole area without distortion */
+    border-radius: 8px;
+    margin-bottom: 3em;
+  }
+
+.doctorName {
+    font-size: 3em;
+    font-weight: 500;
+    color: #000000;
+    padding: 0em 0;
+    margin-bottom: 1.5em;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    /* background-color: grey; */
+}
+
+.header {
+    border-top: 1px solid #e0e0e0;
+    padding: .5em 0;
+    /* background-color: pink; */
+    font-weight: 500;
+    font-size: 2em;
+  }
+
+  .text {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #000000;
+    padding: 0em 0;
+    margin-bottom: 3em;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    /* background-color: grey; */
   }

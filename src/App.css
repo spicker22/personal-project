@@ -3,7 +3,6 @@
   padding: 0;
   text-align: center;
   width: 100vw;
-
 }
 
 .nav-container {
@@ -11,18 +10,17 @@
   width: 100vw;
   justify-content: space-between;
   font-size: 2em;
-  background-color: rgb(223, 161, 161);
+  background-color: rgb(255, 255, 255);
 }
 
 .full-width-line-top {
-  border-top: 1px solid #b9b9b9;
+  border-top: 1px solid #c4c4c4;
   width: 100%;
   margin-bottom: 20px; 
-  
 }
 
 .full-width-line-bottom {
-  border-top: 1px solid #b9b9b9;
+  border-top: 1px solid #c4c4c4;
   width: 100%;
   margin-top: 100px; 
 }
