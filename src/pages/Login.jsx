@@ -15,7 +15,6 @@ function LoginPage() {
 
     if(res.data) {                                      // Checks reponse from server. If 'res.data' is truthy, assumes login successful
       dispatch({ type: 'login', payload: { name: res.data.name, id:res.data.id }})
-      alert('Login success!')
       navigate(`/account/${res.data.id}`)
     } else {
       alert('Login failed!')

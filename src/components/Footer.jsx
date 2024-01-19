@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 function Footer() {
     return (
         <footer className='footer'>
-            <Nav.Link as={Link} to="/about" className="custom-nav-link2">About</Nav.Link>
+            <Nav.Link as={Link} to="/about" className="about">About</Nav.Link>
             <p>© 2024 Lightpost Health</p>
            
         </footer>

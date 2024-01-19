@@ -62,9 +62,9 @@ function AccountPage(props) {
       <div className="account-container">
         <p id='text'>Account {currentData.accountId}</p>
         
-        <button className='deleteButton' onClick={() => deleteAccount()}>Delete</button>
+        <button className='DLButton' onClick={() => deleteAccount()}>Delete</button>
 
-        <button className='logoutButton' onClick={() => logoutAccount()}>Logout</button>
+        <button className='DLButton' onClick={() => logoutAccount()}>Logout</button>
 
       </div>
      

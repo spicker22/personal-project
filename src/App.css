@@ -28,8 +28,25 @@
 .footer {
   text-align: left;
   justify-content: space-between;
+  font-size: 1em;
+  margin-left: 15vw;
+}
+
+
+.footer p {
+  margin-top: 15px;
+}
+
+
+.custom-nav-link2 {
+  font-size: 1em;
+}
+
+.about {
   font-size: 1.5em;
 }
+
+
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {

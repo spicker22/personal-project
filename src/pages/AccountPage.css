@@ -16,7 +16,7 @@
     margin-bottom: 30px
   }
 
-  .deleteButton {
+  .DLButton {
     border-radius: 8px;
     border: 1px solid #c4c4c4;
     padding: 0.4em 1.2em;
@@ -30,7 +30,7 @@
     margin: 15px;
   }
 
-  .deleteButton:hover {
+  .DLButton:hover {
     font-weight: 700;
     border: 1.25px solid #252525;
   }
