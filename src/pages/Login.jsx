@@ -8,7 +8,7 @@ function LoginPage() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const id = useSelector((redux) => redux.id)
-
+ 
   const handleLogin = async (e, formData) => {          // Login handling function. Takes in 2 parameters, 'e' & 'formData'
     e.preventDefault()                                  // Prevents default form submission behavior ensuring form is not submitted traditional way
     let res = await axios.post('/api/auth', formData)   // Sends POST request to /api/auth endpoint

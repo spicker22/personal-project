@@ -12,12 +12,10 @@
   margin: 15px;
 }
 
-
 .catButton:hover {
   font-weight: 700;
   border: 1.25px solid #252525;
 }
-
 
 #dan {
   display: flex;

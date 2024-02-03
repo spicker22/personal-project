@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import axios from 'axios';
+import { useState } from 'react'
 import './AccountDoctorCard.css'
 
 function AccountDoctorCard(props) {
@@ -45,12 +45,7 @@ function AccountDoctorCard(props) {
   return (isEditing) ? (
     <>
       <div class="full-width-line-account"></div>
-
-
       <div className="doctor-info-container">
-
-
-
         <div className='textAndInput'>
           <p>Name:</p>
           <input
@@ -59,7 +54,6 @@ function AccountDoctorCard(props) {
             onChange={(e) => setDoctorsName(e.target.value)}
           />
         </div>
-
 
         <div className='textAndInput'>
           <p>Phone Number:  </p>
@@ -70,7 +64,6 @@ function AccountDoctorCard(props) {
           />
         </div>
 
-
         <div className='textAndInput'>
           <p>City:  </p>
           <input
@@ -80,9 +73,7 @@ function AccountDoctorCard(props) {
           />
         </div>
 
-
         <button class="ADCbutton" onClick={saveFunction}>Save</button>
-
       </div>
     </>
   ) : (
@@ -99,18 +90,8 @@ function AccountDoctorCard(props) {
           <button class="ADCbutton" onClick={() => setIsEditing(true)}>Edit</button>
           <button class="ADCbutton" onClick={() => deleteDoctor()}>Delete</button>
         </div>
-        
       </div>
-
-
-
-
-
     </>
   )
 }
 export default AccountDoctorCard
-
-
-
-

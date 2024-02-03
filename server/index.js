@@ -1,4 +1,3 @@
-// Import packages
 import express from 'express'
 import morgan from 'morgan'
 import ViteExpress from 'vite-express'
@@ -21,7 +20,6 @@ app.use(                                        // Top level middleware function
     })
   )
 
-
 // Destructs to extract specific functions
 const {getDoctors, getDoctor, addDoctor, deleteDoctor, editDoctor, addAccount, verifyAccount, getAccount, logOut} = handlerFunctions   
 
@@ -37,16 +35,10 @@ app.get('/api/account/:id', getAccount)          // Retrieves info about specifi
 app.get('/api/logout', logOut)
 
 
-// Open door to server
-ViteExpress.listen(app, 2319, () => console.log(`we have a 2319 report to http://localhost:2319`))     // 2319 is the port
+// Open door to server. 2319 is the port
+ViteExpress.listen(app, 2319, () => console.log(`we have a 2319 report to http://localhost:2319`)) 
 
 
-
-
-
-
-
-
-// Note
+// Notes
 // Ensure the package.json file has the following in the scripts: 
 // "dev": "nodemon server/index.js -w server/index.js -w src",

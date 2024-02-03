@@ -2,8 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import './LandingPage.css'
-
-import DoctorsCard from '../components/DoctorsCard.jsx';          // Import DoctorsCard child component
+import DoctorsCard from '../components/DoctorsCard.jsx';
 
 // LandingPage component
 const LandingPage = () => {
@@ -11,12 +10,9 @@ const LandingPage = () => {
     const handleClick = (value) => {                              // 'handleClick' function with parameter 'value'. The setCategory (button to update category)
       setCategoryId(value);                                       // Update state using 'setCategoryId function (button to update category)
     };
-
     const [currentData, setCurrentData] = useState([])            // Setting up useState variable & function (currentData, setCurrentData)
-   
-    useEffect(() => {axios.get(`/api/doctors/${categoryId}`)
-      .then((res) => {setCurrentData(res.data)})}, [categoryId])  // Using useEffect to get data from endpoint (/api/doctors)
-   
+    useEffect(() => {axios.get(`/api/doctors/${categoryId}`)      // Using useEffect to get data from endpoint (/api/doctors) 
+      .then((res) => {setCurrentData(res.data)})}, [categoryId])  // Update state using 'setCurrentData' function
     const doctorsListItems = currentData.map((doctor) => (        // Mapping over 'currentData' to get each element (each doctor)
       <DoctorsCard
         key={doctor.id}  
@@ -38,7 +34,6 @@ const LandingPage = () => {
       <button className="catButton" onClick={() => handleClick(9)}>LASIK</button>
       <br></br>
       <div id='dan'> {doctorsListItems} </div>
-      
     </>
     )
 }

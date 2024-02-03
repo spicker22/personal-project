@@ -21,18 +21,20 @@ const handlerFunctions = {
     },
 
     addDoctor: async (req, res) => {
-        const { name, phoneNumber, imgURL, address, categoryId } = req.body  // Destructs properties from 'body' of incoming request (req)
+        const { name, phoneNumber, imgURL, address, categoryId, accountId } = req.body  // Destructs properties from 'body' of incoming request (req)
         const newRow = {                                             // Creating new doctor row                                 
             name: name,                                              // name property
             phoneNumber: phoneNumber,                                // phoneNumber property
             imgURL: imgURL,                                          // imgURL property
             address: address,                                        // address property
-            categoryId: categoryId                                   // categoryId property
-                                                     
+            categoryId: categoryId,                                  // categoryId property
+            accountId: accountId
+
         }
         await Doctor.create(newRow)                                  // Creating new doctor record in 'Doctor' database w/ values specified in 'newRow' object
         const doctors = await Doctor.findAll()                       // Getting all doctors
-        res.send(doctors)                                            // Sending entire doctor set
+        console.log(doctors);
+        res.send(doctors);                                            // Sending entire doctor set
     },
 
     deleteDoctor: async (req, res) => {
@@ -55,34 +57,25 @@ const handlerFunctions = {
         const editDoctor = await Doctor.findByPk(+id)                 // Finding the doctor you want to delete
 
         if (editDoctor.accountId !== req.session.accountId) {
-            res.send({success:false})                                
+            res.send({ success: false })
         }
-        
-        editDoctor.name = name                                        // Change object ( the name ) 
-        editDoctor.phoneNumber = phoneNumber                          // Change object ( the phoneNumber ) 
-        editDoctor.imgURL = imgURL                                    // Change object ( the imgURL )
-        // editDoctor.address = address                               // Change object ( the address ) 
-        // editDoctor.categoryId = categoryId                         // Change object ( the categoryId ) 
+        editDoctor.name = name                                        // Change object ( name ) 
+        editDoctor.phoneNumber = phoneNumber                          // Change object ( phoneNumber ) 
+        editDoctor.imgURL = imgURL                                    // Change object ( imgURL )
+        // editDoctor.address = address                               // Change object ( address ) 
+        // editDoctor.categoryId = categoryId                         // Change object ( categoryId ) 
 
-        await editDoctor.save()                                       // Deleting the identiified doctor
-        // const doctors = await Doctor.findAll()                     // Getting all the udpated list of the doctors
-        // res.send(doctors)          
-        
-        
-        const account = await Account.findByPk(+accountId, {                  // Finding specific account
-            include: [                                                 // Joining Doctor model
+        await editDoctor.save()                                       // Deleting identiified doctor
+        // const doctors = await Doctor.findAll()                     // Getting all udpated list of doctors
+        // res.send(doctors)                                          // Sending entire doctor set
+        const account = await Account.findByPk(+accountId, {          // Finding specific account
+            include: [                                                // Joining Doctor model
                 {
                     model: Doctor
                 },
             ]
         })
-        res.send(account) 
-        
-        
-        
-        
-        
-        // Sending entire doctor set
+        res.send(account)                                             // Sending account
     },
 
     addAccount: async (req, res) => {
@@ -90,17 +83,13 @@ const handlerFunctions = {
         const newRow = {                                              // Creating new account row                                 
             email: email,                                             // email property
             password: password                                        // password property
-
         }
         await Account.create(newRow)                                  // Creating new account record in 'Account' database w/ values specified in 'newRow' object
         res.send('success')                                           // Sending 'success' string
     },
 
-
-
     verifyAccount: async (req, res) => {
-        const { email, password } = req.body    
-        
+        const { email, password } = req.body
         const sess = req.session
 
         // Extracting 'email' & 'password' from request parameters
@@ -110,8 +99,7 @@ const handlerFunctions = {
                 password: password                                    // Checking 'password' match 
             },
         })
-
-        if (account) {                                             // If statement checking account parameters match                   
+        if (account) {                                                // If statement checking account parameters match                   
             sess.accountId = account.accountId
             res.send({ message: 'success', name: 'name', id: account.accountId })
         } else {
@@ -120,16 +108,11 @@ const handlerFunctions = {
     },
 
 
-
     getAccount: async (req, res) => {
         const { id } = req.params
-        console.log(id);
-
         if (+id !== req.session.accountId) {
-            return res.send({failed:true})                               // 
+            return res.send({ failed: true })
         }
-
-
         const account = await Account.findByPk(+id, {                  // Finding specific account
             include: [                                                 // Joining Doctor model
                 {
@@ -140,13 +123,13 @@ const handlerFunctions = {
         res.send(account)                                              // Sending account
     },
 
-     logOut: async (req, res) => {
+    logOut: async (req, res) => {
         req.session.destroy((err) => {
             if (err) {
-              console.log(err);
+                console.log(err);
             }
             res.send('Logout Successful');
-          });                                  
+        });
     },
 }
 export default handlerFunctions
@@ -187,10 +170,3 @@ export default handlerFunctions
 //          state variable, or a button
 //          examples -> if have state variable
 //         or onclick attached to each button, a axios request is sent, and updates state variable of doctors
-
-
-
-// Use javascript to filter data with json data
-// then figure out come up with sequalize syntax
-
-// need to identify doctors after you figured out category id 

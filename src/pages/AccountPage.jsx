@@ -1,19 +1,51 @@
-import { useNavigate, Link, useLoaderData } from 'react-router-dom';
-import { useState } from 'react'
 import axios from 'axios';
+import { useNavigate, Link, useLoaderData } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import AccountDoctorCard from '../components/AccountDoctorCard.jsx'
 import './AccountPage.css'
-import { useDispatch } from 'react-redux';
+import AddDoctorModal from './AddDoctorModal.jsx'
 
 // AccountPage component
 function AccountPage(props) {
-  const { account } = useLoaderData()
-  const [currentData, setCurrentData] = useState(account)
-  const [isEditing, setIsEditing] = useState(false)
-  const [editedData, setEditedData] = useState(account.doctors)
-  const dispatch = useDispatch()
-  const navigate = useNavigate();
 
+  const { account } = useLoaderData()
+  const [currentData, setCurrentData] = useState(account.doctors)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)    
+  const [doctorName, setDoctorName] = useState('')
+  const [doctorPhoneNumber, setDoctorPhoneNumber] = useState('')
+  const [doctorAddress, setDoctorAddress] = useState('')
+  const [doctorAccountId, setDoctorAccountId] = useState('')
+  const [categoryId, setcCategoryId] = useState('')
+  const [imgURL, setImgURL] = useState('')
+
+
+  // Add Doctor function
+  const addDoctor = () => {
+    setShowModal(true)
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const bodyObj = {
+      name: doctorName,
+      phoneNumber: doctorPhoneNumber,
+      address: doctorAddress,
+      categoryId: categoryId,
+      imgURL: imgURL,
+      accountId: doctorAccountId
+    }
+
+    // Axios put request to insert hobby data into database
+    axios.post(`/api/doctor`, bodyObj)
+      .then((res) => {
+        setCurrentData(res.data)
+        setShowModal(false)
+      })
+  }
+  
   // Delete account function
   const deleteAccount = () => {
     const confirmDelete = window.confirm('Sure want to delete account?')
@@ -43,8 +75,8 @@ function AccountPage(props) {
   }
 
   // Variable that maps over doctor array and renders them in 'AccountDoctorCard' component
-  const doctorList = currentData.doctors.map((doctor) => {
-    console.log(doctor);
+  const doctorList = currentData.map((doctor) => {
+    // console.log(doctor);
     return <AccountDoctorCard
       setCurrentData={setCurrentData}
       accountId={doctor.accountId}
@@ -61,19 +93,24 @@ function AccountPage(props) {
     <div className='test'>
       <div className="account-container">
         <p id='text'>Account {currentData.accountId}</p>
-        
+        <button class="DLButton" onClick={addDoctor}>Add Doctor</button>
         <button className='DLButton' onClick={() => deleteAccount()}>Delete</button>
-
         <button className='DLButton' onClick={() => logoutAccount()}>Logout</button>
-
       </div>
-     
       {doctorList}
-
-      {/* <span class="material-symbols-outlined">
-        close
-      </span>
-      <i class='material-icons'>close</i> */}
+      <br></br>
+      <br></br>
+      <AddDoctorModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setDoctorName={setDoctorName}
+        setDoctorPhoneNumber={setDoctorPhoneNumber}
+        setDoctorAddress={setDoctorAddress}
+        setcCategoryId={setcCategoryId}
+        setImgURL={setImgURL}
+        setDoctorAccountId={setDoctorAccountId}
+        handleSubmit={handleSubmit}
+        />
     </div>
   )
 }

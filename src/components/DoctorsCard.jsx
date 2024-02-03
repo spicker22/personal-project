@@ -2,10 +2,7 @@ import React from 'react'
 import { Button, Card, Image } from 'react-bootstrap';
 import './DoctorCard.css'
 
-
-
 const DoctorsCard = (props) => {
-    
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={props.imgURL} className="doctor-card-img" />
@@ -18,5 +15,4 @@ const DoctorsCard = (props) => {
 
     );
 }
-
 export default DoctorsCard
